@@ -4,12 +4,11 @@ import {
   Cart,
   getMultiCartReducers,
   MultiCartService,
-  OrderEntry,
+  OrderEntry, ProcessesLoaderState,
   StateWithMultiCart,
   UserIdService
 } from '@spartacus/core';
 import {EMPTY, Observable, of} from 'rxjs';
-import {ProcessesLoaderState} from '@spartacus/core/src/state/utils/processes-loader';
 import {Store} from '@ngrx/store';
 
 
