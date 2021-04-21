@@ -4,12 +4,11 @@ import {
   Cart,
   getMultiCartReducers,
   MultiCartService,
-  OrderEntry,
+  OrderEntry, StateUtils,
   StateWithMultiCart,
   UserIdService
 } from '@spartacus/core';
 import {EMPTY, Observable, of} from 'rxjs';
-import {ProcessesLoaderState} from '@spartacus/core/src/state/utils/processes-loader';
 import {Store} from '@ngrx/store';
 
 
@@ -27,6 +26,7 @@ export class CustomActiveCartService extends ActiveCartService {
   }
 
   testMethods(): void {
+    const reducerMap = getMultiCartReducers();
     this.initActiveCart();
     this.loadOrMerge('cartId', 'userId', 'pId');
     this.load('cartId', 'userId');
@@ -43,48 +43,46 @@ export class CustomActiveCartService extends ActiveCartService {
     this.activeCart$ = of(null);
     this.activeCartId$ = of('activeCartId');
     this.cartSelector$ = of(null);
-
-    const reducerMap = getMultiCartReducers();
   }
 
   loadOrMerge(cartId: string, userId: string, previousUserId: string): void {
-    console.log('loadOrMerge');
+    console.log('CustomActiveCartService::loadOrMerge');
   }
 
   load(cartId: string, userId: string): void {
-    console.log('load');
+    console.log('CustomActiveCartService::load');
   }
 
   addEntriesGuestMerge(cartEntries: OrderEntry[]): void {
-    console.log('addEntriesGuestMerge');
+    console.log('CustomActiveCartService::addEntriesGuestMerge');
   }
 
-  requireLoadedCartForGuestMerge(): Observable<ProcessesLoaderState<Cart>> {
-    console.log('requireLoadedCartForGuestMerge');
+  requireLoadedCartForGuestMerge(): Observable<StateUtils.ProcessesLoaderState<Cart>> {
+    console.log('CustomActiveCartService::requireLoadedCartForGuestMerge');
     return EMPTY;
   }
 
-  isCartCreating(cartState: ProcessesLoaderState<Cart>, cartId: string): boolean {
-    console.log('isCartCreating');
+  isCartCreating(cartState: StateUtils.ProcessesLoaderState<Cart>, cartId: string): boolean {
+    console.log('CustomActiveCartService::isCartCreating');
     return true;
   }
 
   isEmail(str: string): boolean {
-    console.log('isEmail');
+    console.log('CustomActiveCartService::isEmail');
     return true;
   }
 
   guestCartMerge(cartId: string): void {
-    console.log('guestCartMerge');
+    console.log('CustomActiveCartService::guestCartMerge');
   }
 
   isEmpty(cart: Cart): boolean {
-    console.log('isEmpty');
+    console.log('CustomActiveCartService::isEmpty');
     return true;
   }
 
   isJustLoggedIn(userId: string, previousUserId: string): boolean {
-    console.log('isJustLoggedIn');
+    console.log('CustomActiveCartService::isJustLoggedIn');
     return true;
   }
 }
