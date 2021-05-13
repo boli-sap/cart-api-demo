@@ -17,8 +17,8 @@ export class CustomAddedToCartDialogComponent extends AddedToCartDialogComponent
     super(modalService, cartService, promotionService);
   }
 
-  getFormControl(entry: OrderEntry): FormControl {
-    // console.log(this.quantityControl$);
+  getQuantityFormControl(entry: OrderEntry): FormControl { // <-- method name was changed
+    console.log(this.quantityControl$);
     return null;
   }
 }

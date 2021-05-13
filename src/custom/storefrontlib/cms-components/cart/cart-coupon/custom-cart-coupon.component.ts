@@ -16,7 +16,7 @@ export class CustomCartCouponComponent extends CartCouponComponent {
   ) {
     super(cartVoucherService, formBuilder, customerCouponService, activeCartService);
     console.log(this.ignoreCloseEvent);
-    console.log(this.subscription);
+    // console.log(this.subscription); <-- this field is planned to be removed (https://github.com/SAP/spartacus/issues/7241) as part of future release so it should not become part of public API
   }
 
 }

@@ -17,12 +17,11 @@ export class CustomCartVoucherService extends CartVoucherService {
   }
 
   testMethods(): void {
-    this.combineUserAndCartId('cartId');
+    // this.combineUserAndCartId('cartId'); // see comment on line 23
   }
 
-  combineUserAndCartId(cartId: string): Observable<[string, string]> {
-    console.log('combineUserAndCartId');
-    return EMPTY;
-  }
+  // combineUserAndCartId(cartId: string): Observable<[string, string]> { <-- this method is planned to be removed as part of future release so it should not become part of public API
+  //   console.log('combineUserAndCartId');
+  //   return EMPTY;
+  // }
 }
-

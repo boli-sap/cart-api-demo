@@ -2,14 +2,16 @@ import {Injectable} from '@angular/core';
 import {
   ActiveCartService,
   Cart,
-  getMultiCartReducers,
+  // getMultiCartReducers, <-- code related to ngrx implementation - not to be exposed as part public API
   MultiCartService,
-  OrderEntry, ProcessesLoaderState,
+  OrderEntry,
+  // ProcessesLoaderState, <-- code related to ngrx implementation - not to be exposed as part public API, so only import from /src is possible
   StateWithMultiCart,
   UserIdService
 } from '@spartacus/core';
 import {EMPTY, Observable, of} from 'rxjs';
 import {Store} from '@ngrx/store';
+import { ProcessesLoaderState } from '@spartacus/core/src/state/utils/processes-loader';
 
 
 @Injectable({
@@ -43,7 +45,7 @@ export class CustomActiveCartService extends ActiveCartService {
     this.activeCartId$ = of('activeCartId');
     this.cartSelector$ = of(null);
 
-    const reducerMap = getMultiCartReducers();
+    // const reducerMap = getMultiCartReducers(); <-- code related to ngrx implementation - not to be exposed as part public API
   }
 
   loadOrMerge(cartId: string, userId: string, previousUserId: string): void {

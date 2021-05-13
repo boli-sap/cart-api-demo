@@ -21,7 +21,10 @@ export class CustomCartItemListComponent extends CartItemListComponent {
   resolveItems(items: OrderEntry[]): void {
     super.resolveItems(items);
     console.log(this.userId);
-    console.log(this._items);
+    console.log(this.subscription);
+    // console.log(this._items); <-- the '_items' field remained private, but it has getter and setter that can be used (see lines below)
+    console.log(this.items);
+    console.log((this.items = [{}]));
   }
 
   createForm(): void {

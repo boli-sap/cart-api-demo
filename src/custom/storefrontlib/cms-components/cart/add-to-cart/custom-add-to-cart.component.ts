@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import {AddToCartComponent, CurrentProductService, ModalService} from '@spartacus/storefront';
-import {ActiveCartService, OrderEntry} from '@spartacus/core';
+import {ActiveCartService, Product} from '@spartacus/core';
 
 @Component({
   selector: 'custom-add-to-cart',
@@ -17,12 +17,12 @@ export class CustomAddToCartComponent extends AddToCartComponent{
     super(modalService, currentProductService, cd, activeCartService);
   }
 
-  resolveItems(items: OrderEntry[]): void {
-    console.log('resolveItems');
+  setStockInfo(product: Product): void {
+    console.log('setStockInfo');
   }
 
-  createForm(): void {
-    console.log('createForm');
+  openModal(): void {
+    console.log('openModal');
   }
 
 }
