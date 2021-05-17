@@ -9,9 +9,9 @@ import {
   StateWithMultiCart,
   UserIdService
 } from '@spartacus/core';
+import {ProcessesLoaderState} from '@spartacus/core/src/state/utils/processes-loader';
 import {EMPTY, Observable, of} from 'rxjs';
 import {Store} from '@ngrx/store';
-import { ProcessesLoaderState } from '@spartacus/core/src/state/utils/processes-loader';
 
 
 @Injectable({
