@@ -5,14 +5,12 @@ import {
   // getMultiCartReducers, <-- code related to ngrx implementation - not to be exposed as part public API
   MultiCartService,
   OrderEntry,
-  // ProcessesLoaderState, <-- code related to ngrx implementation - not to be exposed as part public API, so only import from /src is possible
   StateWithMultiCart,
   UserIdService
 } from '@spartacus/core';
-import {ProcessesLoaderState} from '@spartacus/core/src/state/utils/processes-loader';
 import {EMPTY, Observable, of} from 'rxjs';
 import {Store} from '@ngrx/store';
-
+import {StateUtils} from '@spartacus/core';
 
 @Injectable({
   providedIn: 'root',
@@ -60,12 +58,12 @@ export class CustomActiveCartService extends ActiveCartService {
     console.log('addEntriesGuestMerge');
   }
 
-  requireLoadedCartForGuestMerge(): Observable<ProcessesLoaderState<Cart>> {
+  requireLoadedCartForGuestMerge(): Observable<StateUtils.ProcessesLoaderState<Cart>> {
     console.log('requireLoadedCartForGuestMerge');
     return EMPTY;
   }
 
-  isCartCreating(cartState: ProcessesLoaderState<Cart>, cartId: string): boolean {
+  isCartCreating(cartState: StateUtils.ProcessesLoaderState<Cart>, cartId: string): boolean {
     console.log('isCartCreating');
     return true;
   }

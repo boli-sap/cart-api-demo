@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AddedToCartDialogComponent, ModalService, PromotionService} from '@spartacus/storefront';
+import {AddedToCartDialogComponent, ModalService} from '@spartacus/storefront';
 import {ActiveCartService, OrderEntry} from '@spartacus/core';
 import {FormControl} from '@angular/forms';
 
@@ -12,9 +12,8 @@ export class CustomAddedToCartDialogComponent extends AddedToCartDialogComponent
   constructor(
     protected modalService: ModalService,
     protected cartService: ActiveCartService,
-    protected promotionService: PromotionService
   ) {
-    super(modalService, cartService, promotionService);
+    super(modalService, cartService);
   }
 
   getQuantityFormControl(entry: OrderEntry): FormControl { // <-- method name was changed
