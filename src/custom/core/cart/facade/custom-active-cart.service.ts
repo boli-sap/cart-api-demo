@@ -2,15 +2,15 @@ import {Injectable} from '@angular/core';
 import {
   ActiveCartService,
   Cart,
-  getMultiCartReducers,
+  // getMultiCartReducers, <-- code related to ngrx implementation - not to be exposed as part public API
   MultiCartService,
-  OrderEntry, ProcessesLoaderState,
+  OrderEntry,
   StateWithMultiCart,
   UserIdService
 } from '@spartacus/core';
 import {EMPTY, Observable, of} from 'rxjs';
 import {Store} from '@ngrx/store';
-
+import {StateUtils} from '@spartacus/core';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +43,7 @@ export class CustomActiveCartService extends ActiveCartService {
     this.activeCartId$ = of('activeCartId');
     this.cartSelector$ = of(null);
 
-    const reducerMap = getMultiCartReducers();
+    // const reducerMap = getMultiCartReducers(); <-- code related to ngrx implementation - not to be exposed as part public API
   }
 
   loadOrMerge(cartId: string, userId: string, previousUserId: string): void {
@@ -58,12 +58,12 @@ export class CustomActiveCartService extends ActiveCartService {
     console.log('addEntriesGuestMerge');
   }
 
-  requireLoadedCartForGuestMerge(): Observable<ProcessesLoaderState<Cart>> {
+  requireLoadedCartForGuestMerge(): Observable<StateUtils.ProcessesLoaderState<Cart>> {
     console.log('requireLoadedCartForGuestMerge');
     return EMPTY;
   }
 
-  isCartCreating(cartState: ProcessesLoaderState<Cart>, cartId: string): boolean {
+  isCartCreating(cartState: StateUtils.ProcessesLoaderState<Cart>, cartId: string): boolean {
     console.log('isCartCreating');
     return true;
   }

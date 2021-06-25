@@ -1,5 +1,10 @@
 import {Injectable} from '@angular/core';
-import {CartConnector, CartEffects, SiteContextActions, StateWithMultiCart} from '@spartacus/core';
+import {
+  CartConnector,
+  CartEffects, // <-- code related to ngrx implementation - not to be exposed as part public API
+  SiteContextActions,
+  StateWithMultiCart,
+} from '@spartacus/core';
 import {Store} from '@ngrx/store';
 import {Actions, ofType} from '@ngrx/effects';
 

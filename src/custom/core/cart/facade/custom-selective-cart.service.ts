@@ -56,7 +56,7 @@ export class CustomSelectiveCartService extends SelectiveCartService {
   }
 
   isLoggedIn(userId: string): boolean {
-    console.log('load');
+    console.log('isLoggedIn');
     return true;
   }
 }

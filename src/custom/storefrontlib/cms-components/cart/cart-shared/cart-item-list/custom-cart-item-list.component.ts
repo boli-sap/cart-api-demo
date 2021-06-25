@@ -11,16 +11,18 @@ export class CustomCartItemListComponent extends CartItemListComponent {
   constructor(
     protected activeCartService: ActiveCartService,
     protected selectiveCartService: SelectiveCartService,
-    public featureConfigService?: FeatureConfigService,
-    protected userIdService?: UserIdService,
-    protected multiCartService?: MultiCartService
+    public featureConfigService: FeatureConfigService,
+    protected userIdService: UserIdService,
+    protected multiCartService: MultiCartService
   ) {
-    super(activeCartService, selectiveCartService, featureConfigService, userIdService, multiCartService);
+    super(activeCartService, selectiveCartService, userIdService, multiCartService);
   }
 
   resolveItems(items: OrderEntry[]): void {
     super.resolveItems(items);
     console.log(this.userId);
+    console.log(this.subscription);
+    console.log(this.items);
     console.log(this._items);
   }
 
